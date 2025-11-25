@@ -171,7 +171,7 @@ media
 settings.py
 #media files configuration
 MEDIA_URL='/media/'
-MEDIA_ROOT=BASE_DIR /'mdeia'
+MEDIA_ROOT=BASE_DIR /'media'
 
 => https://docs.djangoproject.com/en/5.2/howto/static-files/
 urls.py
@@ -200,11 +200,52 @@ def __str__(self):
   return f"{self.first_name} {self.last_name}
 
 19. Fetch Data From Database
+views.py
+from django.http import HttpResponse
+from django.shortcuts import render
+from employees.models import Employee
+def home(request):
+  employees = Employee.objects.all()
+  print(employees)
+context={
+'employees': employees,
+}
+  return render(request,'home.html')
+  
+<img src="{% static 'images/django.png' %}" alt=" " width="400"/>
+
+{%  for i in employees %}
+{% endfor %}
 
 
+path('employees/',include('employees.urls'))
 
 
+employees => create a file urls.py
+from django.urls import path
+from . import views
 
+urlspattern=[
+path('<int:pk>/',views.employee_detail)
+]
+
+views.py
+def employee_detail(request,pk):
+   try:
+       employee=Employee.objects.get(pk=pk)
+   except:
+       raise Http404
+
+or
+from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse
+from .models import Employee
+
+def employee_detail(request, pk):
+    employee = get_object_or_404(Employee, pk=pk)
+    return HttpResponse(employee)
+
+22. Employee Detail Page
 
 
 
