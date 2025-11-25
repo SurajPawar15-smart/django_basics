@@ -1,0 +1,310 @@
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/SurajPawar15-smart/django_basics.git
+git push -u origin main
+
+1. Introduction
+what is Django
+
+2. Course Overview
+learning basics of Django
+todo app =>crud
+assignments
+Django projects
+
+3. What Is Django
+4. Why Should You Use Django
+5. Software Installation
+6. Virtual Environment Overview
+7. Creating And Activating Virtual Environment
+
+pip freeze
+python -m venv env
+env\Scripts\activate
+pip freeze
+deactivate
+pip freeze
+
+pip install django
+pip freeze
+deactivate
+
+8. Download 5 Pre-Built Premium Templates for FREE
+9. Project Structure
+
+django-admin startproject mysite .
+python manage.py runserver
+
+10. Django Settings Explained
+
+11. How Django Works
+
+12. 1:1 Mentorship – Personalized Guidance for Y
+
+13. URL's and HTTPResponse
+
+urls.py
+from django.contrib import admin
+from django.urls import path
+from .import views
+ulpatterns=[
+path('admin/',admin.site.urls),
+path('',views.home)
+]
+
+create a views.py
+from django.http import HttpResponse
+def home(request):
+  return HttpResponse('<h3>Hello World</h3>')
+
+<h3>This is our homepage</h3>
+127.0.0.1:8000
+
+14. Implement Django Template
+
+create a templates => home.html
+<h3>This is our homepage</h3>
+<p>This is loading from the templates</p>
+
+or
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+Django basics
+I have implemented Django templates
+
+<img src="{% static 'images/django.png'%}">
+create a views.py
+from django.http import HttpResponse
+from django.shortcuts import render
+def home(request):
+  return render(request,'home.html')
+
+settings:
+TEMPATES=[
+'DIRS':['templates']
+]
+
+15. Implement Bootstrap
+getbootstrap.com
+includes cdn links
+
+16. Django Static Files
+inside the mysite folder => static (new folder)
+css
+js
+images
+
+
+settings.py
+STATIC_URL='static/'
+STATIC_ROOT=BASE_DIR /'static'
+STATICFILES_DIRS=[
+'mysite/static'
+]
+
+17. Django Apps
+python manage.py startapp employees
+
+admin.py
+
+models.py
+
+views.py
+
+urls.py
+
+18. Django Admin Panel
+
+python manage.py makemigrations
+python manage.py migrate
+
+python manage.py createsuperuser
+username:djangoadmin
+email:developer.suraj@gmail.com
+password:
+password:
+createsuperuser successfully
+
+19. Create a Model
+DATABASE:{
+sqlite3
+}
+
+models.py
+from django.db import models
+
+#create a model
+class Employee(models.Model):
+   first_name=models.CharField(max_length=100)
+   last_name=models.CharField(max_length=100)
+   photo=models.ImageField(upload_to="images")
+   designation=models.CharField(max_length=100)
+   email_Address=models.EmailField(max_length=100)
+   phone_number=models.CharField(max_length=12,blank=True)
+   created_at=models.DateTimeField(auto_now_Add=True)
+   update_at=models.DateTimeField(auto_now=True)
+ 
+20. Migrations
+INSTALLED_APPS=[
+'employees'
+]
+
+pip install pillow
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
+
+admin.py
+from Django.contrib import admin
+from .models import Employee
+admin.site.register(Employee)
+
+21. Django Media Files
+
+media
+
+settings.py
+#media files configuration
+MEDIA_URL='/media/'
+MEDIA_ROOT=BASE_DIR /'mdeia'
+
+=> https://docs.djangoproject.com/en/5.2/howto/static-files/
+urls.py
+from django.conf import settings
+from django.conf.urls.static import static
+
+urlpatterns = [
+    # ... the rest of your URLconf goes here ...
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+models.py
+from django.db import models
+
+#create a model
+class Employee(models.Model):
+   first_name=models.CharField(max_length=100)
+   last_name=models.CharField(max_length=100)
+   photo=models.ImageField(upload_to="images")
+   designation=models.CharField(max_length=100)
+   email_Address=models.EmailField(max_length=100)
+   phone_number=models.CharField(max_length=12,blank=True)
+   created_at=models.DateTimeField(auto_now_Add=True)
+   update_at=models.DateTimeField(auto_now=True)
+ 
+def __str__(self):
+  return f"{self.first_name} {self.last_name}
+
+19. Fetch Data From Database
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
